@@ -2,17 +2,18 @@
   "name": "squads_challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "src/app.ts",
   "scripts": {
     "start": "nodemon src/app.ts",
-    "lint": "eslint src/** --ext .ts --fix"
+    "lint": "eslint src/** --ext .ts --fix",
+    "dcup": "docker-compose -f docker-compose.yml up --build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SamuelSabino/squads_challenge.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samuel Sabino",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SamuelSabino/squads_challenge/issues"
@@ -34,6 +35,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
   }
 }
