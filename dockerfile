@@ -1,14 +1,16 @@
-FROM node:14
+FROM node:14 as builder
 
-# Create app directory
-WORKDIR /usr/src/app
-
-COPY package*.json ./
+COPY ./package*.json ./
 
 RUN npm install
 
-COPY . .
+FROM node:14
 
-EXPOSE 8080
+# Create app directory
+WORKDIR /app/squads_challenge
 
-CMD [ "node", "/app.js" ]
+COPY --from=builder node_modules node_modules
+
+COPY ./ ./
+
+CMD ["npm", "run", "start"]
