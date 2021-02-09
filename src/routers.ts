@@ -1,21 +1,29 @@
+import { celebrate, Joi, Segments } from 'celebrate'
 import Router from 'express'
-
-import { deleteProduct } from './controllers/products/deleteProduct.controller'
-import { getAllProducts } from './controllers/products/getAllProducts.controller'
-import { getProduct } from './controllers/products/getProduct.controller'
-import { patchProduct } from './controllers/products/patchProduct.controller'
-import { postProduct } from './controllers/products/postProduct.controller'
+import { ProductsController } from './controllers/product.controller'
 
 const router = Router()
 
-router.get('/', getAllProducts)
+const productController = new ProductsController()
 
-router.get('/:id?', getProduct)
+const celebrateParams = celebrate({ [Segments.PARAMS]: { id: Joi.string().required() } })
 
-router.post('/', postProduct)
+const celebrateBody = celebrate({
+  [Segments.BODY]: {
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    value: Joi.string().required()
+  }
+})
 
-router.patch('', patchProduct)
+router.get('/', productController.findAll)
 
-router.delete('', deleteProduct)
+router.get('/:id?', celebrateParams, productController.findbyId)
+
+router.post('/', celebrateBody, productController.creatAndSave)
+
+router.patch('/:id', celebrateBody, productController.updateById)
+
+router.delete('/:id', celebrateParams, productController.deleteById)
 
 export { router }
