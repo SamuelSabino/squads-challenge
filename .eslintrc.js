@@ -14,5 +14,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint'],
-  rules: {}
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    'no-useless-constructor': 'off'
+  }
 }
