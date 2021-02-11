@@ -18,23 +18,15 @@ class ProductsController {
     }
   }
 
-  public async findbyId (req: Request, res: Response): Promise<void> {
+  public async find (req: Request, res: Response): Promise<void> {
     try {
-      const id = req.params.id
+      const id = req.params.id ?? ''
 
-      const product = this.productRepository.findById(id)
+      const product = (id)
+        ? this.productRepository.findById(id)
+        : this.productRepository.findAll()
 
       res.status(200).json({ error: false, result: product })
-    } catch (error) {
-      res.json({ error: true, message: error })
-    }
-  }
-
-  public async findAll (_req: Request, res: Response): Promise<void> {
-    try {
-      const products = this.productRepository.findAll()
-
-      res.status(200).json({ error: false, result: products })
     } catch (error) {
       res.json({ error: true, message: error })
     }
