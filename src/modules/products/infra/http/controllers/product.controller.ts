@@ -1,14 +1,14 @@
 import { Request, Response } from 'express'
+import { IProductDTO } from '../../../dtos/productDTO.interface'
 
-import { IProduct } from '../interfaces/product.interface'
-import { ProductRepository } from '../repositories/product.repository'
+import { ProductRepository } from '../../mongo/repositories/product.repository'
 
 class ProductsController {
   constructor (private productRepository = new ProductRepository()) { /**  */ }
 
   public async creatAndSave (req: Request, res: Response): Promise<void> {
     try {
-      const product: IProduct = req.body
+      const product: IProductDTO = req.body
 
       await this.productRepository.save(product)
 

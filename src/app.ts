@@ -1,13 +1,13 @@
 import express from 'express'
 
-import { router } from './routers'
-import { MongoRepository } from './services/mongo.service'
+import { MongoRepository } from './shared/infra/mongo/repositories/mongo.repository'
+import { router } from './shared/infra/http/routers/index.router'
 
 const app = express()
 
 app.use(express.json())
 
-app.use('/v1/products', router)
+app.use(router)
 
 const startServer = async (): Promise<void> => {
   const mongoRepository = new MongoRepository()
