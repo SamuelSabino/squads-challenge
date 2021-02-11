@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: squads_challenge
+    image: squads-challenge
     build: '.'
     environment:
       PORT: 8080
@@ -11,10 +11,10 @@ services:
       - db
     ports:
       - '8080:8080'
-    working_dir: /app/squads_challenge/
+    working_dir: /app/squads-challenge/
     volumes: 
-      - /app/squads_challenge/node_modules
-      - ./src:/app/squads_challenge/src
+      - /app/squads-challenge/node_modules
+      - ./src:/app/squads-challenge/src
 
   db:
     image: mongo

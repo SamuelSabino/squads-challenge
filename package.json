@@ -1,5 +1,5 @@
 {
-  "name": "squads_challenge",
+  "name": "squads-challenge",
   "version": "1.0.0",
   "description": "",
   "main": "src/app.ts",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamuelSabino/squads_challenge.git"
+    "url": "git+https://github.com/SamuelSabino/squads-challenge.git"
   },
   "keywords": [],
   "author": "Samuel Sabino",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SamuelSabino/squads_challenge/issues"
+    "url": "https://github.com/SamuelSabino/squads-challenge/issues"
   },
-  "homepage": "https://github.com/SamuelSabino/squads_challenge#readme",
+  "homepage": "https://github.com/SamuelSabino/squads-challenge#readme",
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.24",

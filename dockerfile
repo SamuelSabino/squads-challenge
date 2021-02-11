@@ -7,7 +7,7 @@ RUN npm install
 FROM node:14
 
 # Create app directory
-WORKDIR /app/squads_challenge
+WORKDIR /app/squads-challenge
 
 COPY --from=builder node_modules node_modules
 
