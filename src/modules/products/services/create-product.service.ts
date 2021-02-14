@@ -9,7 +9,7 @@ class CreateProductService {
 
     if (!productData.description) throw new Error('Descrição não pode estar vazia.')
 
-    if (productData.value === '0') throw new Error('Valor do produto precisa ser maior que zero.')
+    if (parseInt(productData.value, 10) === 0) throw new Error('Valor do produto precisa ser maior que zero.')
 
     return this.productRepository.save(productData)
   }
