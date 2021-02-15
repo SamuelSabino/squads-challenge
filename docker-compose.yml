@@ -1,6 +1,7 @@
 version: '3'
 services:
   app:
+    container_name: BACKEND-SERVER
     image: squads-challenge
     build: '.'
     environment:
@@ -17,6 +18,7 @@ services:
       - ./src:/app/squads-challenge/src
 
   db:
+    container_name: DB-SERVER
     image: mongo
     ports:
       - '27017:27017'
