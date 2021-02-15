@@ -26,7 +26,7 @@ describe('UNIDADE | Find Product Service', () => {
   })
 
   test('Quando eu procuro um produto passando o id na busca.', async (done) => {
-    const productId = productData.id
+    const productId = productData._id
 
     const result = await findProductService.execute(productId)
 

@@ -2,7 +2,7 @@ import { FakeProductRepository } from '../../src/modules/products/infra/fake/rep
 import IProductRepository from '../../src/modules/products/interfaces/product.interface'
 import { CreateProductService } from '../../src/modules/products/services/create-product.service'
 
-describe('UNIDADE | Create Product Service', () => {
+describe.only('UNIDADE | Create Product Service', () => {
   let productRepository: IProductRepository
   let createProductService: CreateProductService
 
@@ -20,7 +20,7 @@ describe('UNIDADE | Create Product Service', () => {
 
     const result = createProductService.execute(productData)
 
-    expect(result).rejects.toThrow('Produto precisa ter mais que dois caracteres.')
+    expect(result).rejects.toMatchObject({ message: 'Produto precisa ter mais que dois caracteres.', statusCode: 400 })
     done()
   })
 
@@ -33,7 +33,7 @@ describe('UNIDADE | Create Product Service', () => {
 
     const result = createProductService.execute(productData)
 
-    expect(result).rejects.toThrow('Descrição não pode estar vazia.')
+    expect(result).rejects.toMatchObject({ message: 'Descrição não pode estar vazia.', statusCode: 400 })
     done()
   })
 
@@ -46,7 +46,7 @@ describe('UNIDADE | Create Product Service', () => {
 
     const result = createProductService.execute(productData)
 
-    expect(result).rejects.toThrow('Valor do produto precisa ser maior que zero.')
+    expect(result).rejects.toMatchObject({ message: 'Valor do produto precisa ser maior que zero.', statusCode: 400 })
     done()
   })
 
@@ -59,7 +59,7 @@ describe('UNIDADE | Create Product Service', () => {
 
     const result = await createProductService.execute(productData)
 
-    expect(result).toMatchObject({ ...productData, id: '1', active: true })
+    expect(result).toMatchObject({ ...productData, _id: '1', active: true })
 
     done()
   })

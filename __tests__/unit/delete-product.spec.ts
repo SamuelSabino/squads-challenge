@@ -28,19 +28,19 @@ describe('UNIDADE | Delete Product Service', () => {
   test('[ERROR] Quando eu tento deletar um produto e não informo o id correspondente.', (done) => {
     const result = deleteProductService.execute('')
 
-    expect(result).rejects.toThrow('Id invalido ou não informado.')
+    expect(result).rejects.toMatchObject({ message: 'Id invalido ou não informado.', statusCode: 400 })
     done()
   })
 
   test('[ERROR] Quando eu tento deletar um produto e o mesmo não é encontrado.', (done) => {
     const result = deleteProductService.execute('id')
 
-    expect(result).rejects.toThrow('Produto não encontrado, verifique se o mesmo já não foi deletado.')
+    expect(result).rejects.toMatchObject({ message: 'Produto não encontrado, verifique se o mesmo já não foi deletado.', statusCode: 404 })
     done()
   })
 
   test('Quando eu deleto um produto', async (done) => {
-    const productId = productData.id as string
+    const productId = productData._id as string
 
     const result = await deleteProductService.execute(productId)
 
