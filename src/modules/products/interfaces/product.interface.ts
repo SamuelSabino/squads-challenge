@@ -5,5 +5,5 @@ export default interface IProductRepository {
   findAll(): Promise<IProductDTO[]>;
   findById(id: string): Promise<IProductDTO>;
   update(productData: IProductDTO): Promise<IProductDTO>;
-  delete(id: string): Promise<undefined>;
+  delete(id: string): Promise<void>;
 }

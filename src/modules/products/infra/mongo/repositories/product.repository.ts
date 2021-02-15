@@ -41,15 +41,9 @@ class ProductRepository implements IProductRepository {
     })
   }
 
-  async update (productData: IProductDTO & { id: string }): Promise<IProductDTO> {
-    const productToUpdate = new Product({
-      name: productData.name,
-      description: productData.description,
-      value: productData.value
-    })
-
+  async update (productData: IProductDTO): Promise<IProductDTO> {
     return new Promise((resolve, reject) => {
-      Product.updateOne({ _id: productData.id, active: true }, productToUpdate, {}, (err, product) => {
+      Product.findOneAndUpdate({ _id: productData._id }, { $set: productData }, {}, (err, product) => {
         err
           ? reject(err)
           : resolve(product as unknown as IProductDTO)
@@ -58,12 +52,10 @@ class ProductRepository implements IProductRepository {
   }
 
   // TODO: validar retorno do delete
-  async delete (id: string): Promise<undefined> {
+  async delete (id: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      Product.updateOne({ _id: id }, { active: false }, null, (err, result) => {
-        (err)
-          ? reject(err)
-          : resolve(result)
+      Product.findOneAndUpdate({ _id: id }, { $set: { active: false } }, {}, (err) => {
+        (err) ? reject(err) : resolve()
       })
     })
   }

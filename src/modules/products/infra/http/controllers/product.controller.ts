@@ -38,7 +38,7 @@ class ProductsController {
 
     const updateProductService = new UpdateProductService(this.productRepository)
 
-    const productUpdated = await updateProductService.execute({ ...productData, id })
+    const productUpdated = await updateProductService.execute({ ...productData, _id: id })
 
     res.status(200).json({ error: false, result: productUpdated })
   }

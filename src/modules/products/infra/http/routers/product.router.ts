@@ -8,12 +8,12 @@ const productRouter = Router()
 
 const productController = new ProductsController()
 
-productRouter.get('/:id?', celebrate({ [Segments.PARAMS]: ParamsSchema }), productController.find)
+productRouter.get('/:id?', (req, res) => { productController.find(req, res) })
 
-productRouter.post('/', celebrate({ [Segments.BODY]: BodySchema }), productController.creatAndSave)
+productRouter.post('/', celebrate({ [Segments.BODY]: BodySchema }), (req, res) => productController.creatAndSave(req, res))
 
-productRouter.patch('/:id', celebrate({ [Segments.PARAMS]: ParamsSchema, [Segments.BODY]: BodySchema }), productController.updateById)
+productRouter.patch('/:id', celebrate({ [Segments.PARAMS]: ParamsSchema, [Segments.BODY]: BodySchema }), (req, res) => { productController.updateById(req, res) })
 
-productRouter.delete('/:id', celebrate({ [Segments.PARAMS]: ParamsSchema }), productController.deleteById)
+productRouter.delete('/:id', celebrate({ [Segments.PARAMS]: ParamsSchema }), (req, res) => { productController.deleteById(req, res) })
 
 export { productRouter }
