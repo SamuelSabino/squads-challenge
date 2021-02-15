@@ -6,7 +6,7 @@ class UpdateProductService {
   constructor (private productRepository: IProductRepository) { /** */ }
 
   public async execute (productData: IProductDTO): Promise<IProductDTO> {
-    if (!productData.id) throw new AppError('Id invalido ou não informado.')
+    if (!productData._id) throw new AppError('Id invalido ou não informado.')
 
     if (productData.name.length < 2) throw new AppError('Produto precisa ter mais que dois caracteres.')
 

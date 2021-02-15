@@ -3,7 +3,7 @@ import IProductRepository from '../interfaces/product.interface'
 
 class DeleteProductService {
   constructor (private productRepository: IProductRepository) { /** */ }
-  public async execute (id: string): Promise<undefined> {
+  public async execute (id: string): Promise<void> {
     if (!id) throw new AppError('Id invalido ou não informado.')
 
     const product = await this.productRepository.findById(id)
