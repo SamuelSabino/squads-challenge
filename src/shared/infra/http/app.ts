@@ -1,8 +1,8 @@
 import express, { NextFunction, Request, Response } from 'express'
 
-import { AppError } from './shared/errors/app.error'
-import { router } from './shared/infra/http/routers/index.router'
-import { MongoRepository } from './shared/infra/mongo/repositories/mongo.repository'
+import { AppError } from '../../errors/app.error'
+import { connection } from '../mongo'
+import { router } from './routers/index.router'
 
 const app = express()
 
@@ -23,12 +23,6 @@ app.use((err: Error, _request: Request, response: Response, _: NextFunction) => 
   return response.status(500).json({ status: 'error', message: 'Erro interno do servidor.' })
 })
 
-const startServer = async (): Promise<void> => {
-  const mongoRepository = new MongoRepository()
+connection()
 
-  await mongoRepository.connectionDB()
-
-  app.listen('8080', () => console.log('Server running on port 8080'))
-}
-
-startServer()
+export { app }

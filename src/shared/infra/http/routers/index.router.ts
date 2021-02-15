@@ -4,6 +4,6 @@ import { productRouter } from '../../../../modules/products/infra/http/routers/p
 
 const router = Router()
 
-router.use('/product', productRouter)
+router.use('/products', productRouter)
 
 export { router }
