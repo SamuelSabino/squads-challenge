@@ -10,7 +10,9 @@
     "lint": "eslint src/** --ext .ts --fix",
     "pretest": "jest .src/shared/infra/mongo/transaction.ts --passWithNoTests",
     "test": "jest",
-    "dcup": "docker-compose -f docker-compose.yml up --build"
+    "coverage:report": "__tests__/coverage/index.html",
+    "docker:run:app": "docker-compose -f docker-compose.yml up --build",
+    "docker:attach": "docker exec -it BACKEND-SERVER bash"
   },
   "repository": {
     "type": "git",
