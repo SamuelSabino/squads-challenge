@@ -46,13 +46,13 @@ yarn install
 4. Com o docker instalado, execute o comando abaixo para inicialização do servidor:
 
 ```text
-npm run dcup
+npm run docker:run:app
 ```
 
 ou
 
 ```text
-yarn dcup
+yarn docker:run:app
 ```
 
 Após executado o comando, a aplicação será inicializada com todas as dependências instaladas e configuradas (inclusive uma instância do banco de dados).
@@ -204,6 +204,44 @@ URL:
   "result": "Product successfully deleted"
 }
  ```
+## Testes automatizados
+
+### Como rodar os testes
+ * para rodar os testes automatizados, o serviço precisa estar iniciado com o comando abaixo:
+
+```
+npm run docker:run:app
+```
+ ou 
+
+```
+yarn docker:run:app
+```
+
+* em seguida, para executar os testes dentro do container, execute o comando:
+
+```
+npm run docker:attach
+```
+
+ou
+
+```
+yarn docker:attach
+```
+
+### Reporte do coverage (taxa de cobertura)
+* Após executado todos os testes, execute o comando (fora da aplicação) abaixo para visualizar numa página web o Relatório da cobertura de todos os testes aplicados:
+
+```
+npm run coverage:report
+```
+
+ou
+
+```
+yarn coverage:report
+```
 
  ## Convenções
  ### Estilo
