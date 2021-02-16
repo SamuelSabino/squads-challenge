@@ -1,5 +1,13 @@
-version: '3'
+version: '2.1'
 services:
+  db:
+    container_name: DB-SERVER
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/db:/data/db
+
   app:
     container_name: BACKEND-SERVER
     image: squads-challenge
@@ -16,11 +24,3 @@ services:
     volumes: 
       - /app/squads-challenge/node_modules
       - ./src:/app/squads-challenge/src
-
-  db:
-    container_name: DB-SERVER
-    image: mongo
-    ports:
-      - '27017:27017'
-    volumes:
-      - ./data/db:/data/db
