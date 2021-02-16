@@ -1,8 +1,8 @@
 import request from 'supertest'
 
-import { IProductDTO } from '../../src/modules/products/dtos/productDTO.interface'
-import { productRouter } from '../../src/modules/products/infra/http/routers/product.router'
-import { app } from '../../src/shared/infra/http/app'
+import { IProductDTO } from '../../../src/modules/products/dtos/productDTO.interface'
+import { productRouter } from '../../../src/modules/products/infra/http/routers/product.router'
+import { app } from '../../../src/shared/infra/http/app'
 
 describe('INTEGRAÇÃO | Find a Product Controller', () => {
   let productToSave: IProductDTO
