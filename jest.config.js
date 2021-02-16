@@ -34,12 +34,7 @@ module.exports = {
   // coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: ['text', 'html'],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -88,7 +83,6 @@ module.exports = {
 
   // Activates notifications for test results
   // notify: false,
-
   // An enum that specifies notification mode. Requires { notify: true }
   // notifyMode: "failure-change",
 
@@ -169,7 +163,7 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  // transform: { '.ts': '<rootDir>/node_modules/ts-jest/preprocessor.js' }
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

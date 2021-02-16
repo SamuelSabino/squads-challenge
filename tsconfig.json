@@ -4,6 +4,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
+    "baseUrl": "./src",
     "target": "ES2019",
     /* Strict Type-Checking Options */
     "alwaysStrict": true,
@@ -22,6 +23,10 @@
       "./node_modules/@types",
       "./src/@types"
     ],
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"]
+    },         
     "esModuleInterop": true,
     /* Experimental Options */
     "experimentalDecorators": true,
