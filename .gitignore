@@ -2,6 +2,3 @@
 /data
 /__tests__/coverage
 /dist
-
-yarn.lock
-package.lock.json

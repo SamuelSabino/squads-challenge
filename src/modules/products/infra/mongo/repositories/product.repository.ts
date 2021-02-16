@@ -51,7 +51,6 @@ class ProductRepository implements IProductRepository {
     })
   }
 
-  // TODO: validar retorno do delete
   async delete (id: string): Promise<void> {
     return new Promise((resolve, reject) => {
       Product.updateOne({ _id: id }, { $set: { active: false } }, {}, (err) => {
