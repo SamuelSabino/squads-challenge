@@ -1,7 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
 
 import { AppError } from '../../errors/app.error'
-import { connection } from '../mongo'
 import { router } from './routers/index.router'
 
 const app = express()
@@ -22,7 +21,5 @@ app.use((err: Error, _request: Request, response: Response, _: NextFunction) => 
 
   return response.status(500).json({ status: 'error', message: 'Erro interno do servidor.' })
 })
-
-connection()
 
 export { app }
