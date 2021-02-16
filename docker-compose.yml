@@ -24,3 +24,4 @@ services:
     volumes: 
       - /app/squads-challenge/node_modules
       - ./src:/app/squads-challenge/src
+      - ./__tests__:/app/squads-challenge/__tests__
