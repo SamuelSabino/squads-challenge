@@ -3,14 +3,14 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projeto
 
-O Squads Challenge é uma API desenvolvida para controle de produtos no geral. A interface fornece o gerenciamento de produtos forma geral, podendo criar, buscar, atualizar e apagar produtos dentro da base.
+O Squads Challenge é uma API desenvolvida para controle de produtos. O Serviço fornece o gerenciamento de produtos como a criação/cadastro de produtos, buscar um produto específico ou uma lista de produtos, atualizar e apagar produtos dentro da base.
 
 ## Pré-requisitos
 
 * NodeJS 12+
 * Docker
 
-### Feito Com
+### Principais ferramentas utilizadas
 
 - [Express](https://expressjs.com/pt-br/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -21,7 +21,7 @@ O Squads Challenge é uma API desenvolvida para controle de produtos no geral. A
 
 ## Começando
 
-Para conseguir a aplicação com cópia local dos arquivos, siga os passos abaixo.
+Para utilizar aplicação com uma cópia local dos arquivos, siga os passos abaixo.
 
 ### Instalação
 
@@ -34,12 +34,28 @@ Para conseguir a aplicação com cópia local dos arquivos, siga os passos abaix
 npm install
 ```
 
-3. Com o docker instalado, execute o comando abaixo para inicialização do servidor:
+ou
+
+```text
+yarn install
+```
+
+3. Tenha o ambiente docker instalado e configurado, caso não possua, pode seguir o guia no link a seguir: `https://docs.docker.com/desktop/#download-and-install`
+
+
+4. Com o docker instalado, execute o comando abaixo para inicialização do servidor:
 
 ```text
 npm run dcup
 ```
-Apos executado o comando, o projeto era buildar e rodar tanto o projeto quanto um container do mongoDB para execução e utilização da aplicação.
+
+ou
+
+```text
+yarn dcup
+```
+
+Após executado o comando, a aplicação será inicializada com todas as dependências instaladas e configuradas (inclusive uma instância do banco de dados).
 
 ## Utilizando a aplicação
 
