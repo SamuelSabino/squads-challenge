@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { ClientSession } from 'mongoose'
 
 import { IMongoRepository } from '../interfaces/mongo.interface'
 
@@ -16,6 +16,24 @@ class MongoRepository implements IMongoRepository {
         })
         .catch((error) => reject(error))
     })
+  }
+
+  async desconnectDB (connection: typeof mongoose): Promise<void> {
+    connection.disconnect()
+  }
+
+  async startTransaction (connection: typeof mongoose): Promise<ClientSession> {
+    const session = await connection.startSession()
+
+    session.startTransaction()
+
+    return session
+  }
+
+  async rollbackTransaction (session: ClientSession): Promise<void> {
+    await session.abortTransaction()
+
+    session.endSession()
   }
 }
 
