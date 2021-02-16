@@ -1,11 +1,12 @@
 import { IProductDTO } from '../../../dtos/productDTO.interface'
 import IProductRepository from '../../../interfaces/product.interface'
+import uuid from 'uuid-1345'
 
 class FakeProductRepository implements IProductRepository {
   private products: IProductDTO[] = []
 
   async save (productData: IProductDTO): Promise<IProductDTO> {
-    const _id = `${this.products.length + 1}`
+    const _id = uuid.v4()
 
     const productSaved = { ...productData, _id, active: true }
 

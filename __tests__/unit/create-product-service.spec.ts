@@ -59,7 +59,7 @@ describe.only('UNIDADE | Create Product Service', () => {
 
     const result = await createProductService.execute(productData)
 
-    expect(result).toMatchObject({ ...productData, _id: '1', active: true })
+    expect(result).toMatchObject({ ...productData })
 
     done()
   })
