@@ -2,7 +2,7 @@
   "name": "squads-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.ts",
+  "main": "src/shared/infra/http/server.ts",
   "private": true,
   "scripts": {
     "build": "tsc",
@@ -56,6 +56,7 @@
   "dependencies": {
     "celebrate": "^13.0.4",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "mongoose": "^5.11.15",
     "uuid-1345": "^1.0.2"
   }
